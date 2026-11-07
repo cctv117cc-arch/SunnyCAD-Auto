@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tính độ dài marker và định mức vải trung bình cho mỗi set.">
+    <title>Average per set | Sunny CAD</title>
+    <link rel="stylesheet" href="../wwwroot/css/average-per-set.css">
+    <script src="../wwwroot/js/average-per-set.js" defer></script>
+</head>
+<body>
+    <header class="app-header">
+        <a class="brand" href="average-per-set.html">
+            SUNNY CAD
+        </a>
+        <span>
+            Công cụ tính toán
+        </span>
+    </header>
+    <main class="page-shell">
+        <div class="page-heading">
+            <div>
+                <p class="eyebrow">
+                    SHEET 1 / TÍNH
+                </p>
+                <h1>
+                    Average per set
+                </h1>
+                <p class="description">
+                    Tính định mức vải trung bình từ độ dài marker, ratio và số lớp.
+                </p>
+            </div>
+            <button type="button" id="reset-calculation" class="button-secondary">
+                Đặt lại
+            </button>
+        </div>
+
+        <!-- Marker inputs and calculated values share the same row. -->
+        <section class="surface" aria-labelledby="input-heading">
+            <div class="section-toolbar">
+                <h2 id="input-heading">
+                    Thông tin marker
+                </h2>
+                <div class="row-control">
+                    <label for="number-of-unit">
+                        Số lượng cần tính
+                    </label>
+                    <input type="number" id="number-of-unit" min="1" max="1000" step="1" value="8" required aria-describedby="row-count-hint">
+                </div>
+            </div>
+            <p id="row-count-hint" class="table-hint">
+                Mặc định 8 dòng. Có thể nhập từ 1 đến 1.000 dòng marker.
+            </p>
+            <div class="table-scroll" tabindex="0" role="region" aria-label="Bảng nhập thông tin marker">
+                <table>
+                    <caption class="visually-hidden">
+                        Nhập yard, inch, P32, ratio và số lớp để tự động tính các kết quả theo dòng.
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                STT
+                            </th>
+                            <th scope="col">
+                                Yard
+                            </th>
+                            <th scope="col">
+                                Inch
+                            </th>
+                            <th scope="col">
+                                P32
+                            </th>
+                            <th scope="col">
+                                Ratio (set)
+                            </th>
+                            <th scope="col">
+                                Number of Layer
+                            </th>
+                            <th scope="col" class="calculated">
+                                Length of Marker
+                                <span class="unit">
+                                    yard
+                                </span>
+                            </th>
+                            <th scope="col" class="calculated">
+                                Length of Marker per set
+                                <span class="unit">
+                                    yard/set
+                                </span>
+                            </th>
+                            <th scope="col" class="calculated">
+                                Length of Marker × Layer
+                                <span class="unit">
+                                    yard
+                                </span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="marker-rows">
+                    </tbody>
+                </table>
+            </div>
+            <p class="table-hint">
+                P32 là số phần 1/32 inch. Kết quả hiển thị 4 chữ số thập phân. Dấu “—” nghĩa là chưa thể tính; hãy kiểm tra dữ liệu và ratio.
+            </p>
+        </section>
+
+        <!-- Totals are derived from all currently visible marker rows. -->
+        <section class="summary-grid" aria-label="Kết quả tính toán tổng" aria-live="polite" aria-atomic="true">
+            <div class="summary-card">
+                <h2>
+                    Total (set)
+                </h2>
+                <output id="total-set">
+                    0.0000
+                </output>
+                <p>
+                    Tổng Ratio × Number of Layer
+                </p>
+            </div>
+            <div class="summary-card">
+                <h2>
+                    Total (yard)
+                </h2>
+                <output id="total-yard">
+                    0.0000
+                </output>
+                <p>
+                    Tổng độ dài marker × số lớp
+                </p>
+            </div>
+            <div class="summary-card summary-primary">
+                <h2>
+                    Average per set
+                </h2>
+                <output id="average-per-set">
+                    0.0000
+                </output>
+                <p>
+                    yard/set · Total (yard) / Total (set)
+                </p>
+            </div>
+        </section>
+        <p id="calculation-status" role="status">
+        </p>
+        <details class="formula-panel">
+            <summary>
+                Công thức tính
+            </summary>
+            <p>
+                Length of Marker = yard + (inch + P32 / 32) / 36
+            </p>
+            <p>
+                Length of Marker per set = Length of Marker / Ratio (set)
+            </p>
+            <p>
+                Length of Marker × Layer = Length of Marker × Number of Layer
+            </p>
+        </details>
+        <noscript>
+            <p>
+                Vui lòng bật JavaScript để sử dụng công cụ tính toán.
+            </p>
+        </noscript>
+    </main>
+</body>
+</html>
