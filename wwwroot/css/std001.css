@@ -68,6 +68,18 @@ h2 { font-size: 16px; font-weight: 650; margin: 0; }
 .status-good { color: #3d7ec2; }
 .status-average { color: #ab7e29; }
 .status-weak { color: #c05b59; }
+/* STD001 v0.4 row actions and the STD002 editor. */
+.actions-cell { text-align: center; }
+.student-action { display: inline-grid; place-items: center; width: 34px; height: 34px; margin: 0 3px; border: 1px solid #dce2eb; border-radius: 6px; background: #fff; color: var(--primary); }
+.student-action svg { width: 17px; height: 17px; }
+.student-action:hover { background: #edf2ff; border-color: var(--primary); }
+.delete-btn { color: #b12c36; }
+.delete-btn:hover { background: #fff0f1; border-color: #b12c36; }
+.student-dialog { width: min(560px, calc(100% - 32px)); max-height: calc(100% - 32px); padding: 26px; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); box-shadow: 0 20px 60px #1d2c4633; }
+.student-dialog::backdrop { background: #1d2c4680; }
+.dialog-heading { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+.edit-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.dialog-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 24px; }
 /* STD001 v2: preserve the specified academic highlight colors, including on hover. */
 .student-row-weak { --row-background: #FA674B; --row-foreground: #291b18; }
 .student-row-good { --row-background: #4BFA9A; --row-foreground: #123a28; }
@@ -95,6 +107,7 @@ button:focus-visible, .table-responsive:focus-visible { outline: 3px solid #86a8
     .page-shell { padding-top: 36px; }
 }
 @media (max-width: 767px) {
+    .edit-grid { grid-template-columns: 1fr; }
     .header-inner { height: 68px; padding: 0 20px; gap: 16px; }
     .workspace-name { display: none; }
     .page-shell { padding: 22px 16px; }

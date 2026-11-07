@@ -62,7 +62,38 @@
         <section class="surface results-panel" aria-labelledby="results-heading">
             <div class="results-toolbar"><div class="results-title"><h2 id="results-heading">Danh sách sinh viên</h2><span class="count-badge" id="result-count">0</span></div><div class="page-size-control"><label for="page-size">Số dòng / trang</label><select class="form-select" id="page-size"><option value="10">10</option><option value="20">20</option><option value="50">50</option></select></div></div>
             <div class="table-responsive" tabindex="0" role="region" aria-label="Bảng danh sách sinh viên">
-                <table class="student-table"><caption class="visually-hidden">Thông tin sinh viên phù hợp với điều kiện tìm kiếm</caption><thead><tr><th scope="col">Mã sinh viên</th><th scope="col">Họ và tên</th><th scope="col">Lớp</th><th scope="col">Loại lớp</th><th scope="col" class="score-cell">Điểm trung bình</th><th scope="col">Học lực</th></tr></thead><tbody id="student-list"></tbody></table>
+                <table class="student-table">
+                    <caption class="visually-hidden">
+                        Thông tin sinh viên phù hợp với điều kiện tìm kiếm
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                Mã sinh viên
+                            </th>
+                            <th scope="col">
+                                Họ và tên
+                            </th>
+                            <th scope="col">
+                                Lớp
+                            </th>
+                            <th scope="col">
+                                Loại lớp
+                            </th>
+                            <th scope="col" class="score-cell">
+                                Điểm trung bình
+                            </th>
+                            <th scope="col">
+                                Học lực
+                            </th>
+                            <th scope="col" class="actions-cell">
+                                Thao tác
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="student-list">
+                    </tbody>
+                </table>
                 <div class="empty-state" id="empty-state" hidden><span aria-hidden="true">⌕</span><h3>Không tìm thấy sinh viên</h3><p>Hãy thay đổi điều kiện tìm kiếm hoặc đặt lại bộ lọc.</p><button type="button" id="clear-empty" class="btn btn-reset">Đặt lại bộ lọc</button></div>
             </div>
             <div class="results-footer"><p id="result-summary" role="status" aria-live="polite" aria-atomic="true"></p><nav class="pagination-controls" aria-label="Phân trang danh sách sinh viên"><button type="button" id="previous-page" class="page-button" aria-label="Trang trước">‹</button><div id="page-numbers" class="page-numbers"></div><button type="button" id="next-page" class="page-button" aria-label="Trang sau">›</button></nav></div>
@@ -70,5 +101,91 @@
         <footer class="page-footer"><span>Sun Education <span aria-hidden="true">·</span> Hệ thống quản lý đào tạo</span><span class="demo-note">Dữ liệu mẫu • Chưa kết nối API</span></footer>
         <noscript><p class="alert alert-warning mt-3">Vui lòng bật JavaScript để xem và tìm kiếm danh sách sinh viên.</p></noscript>
     </main>
+
+    <!-- STD002 edits the selected demo record from STD001. -->
+    <dialog id="student-dialog" class="student-dialog" aria-labelledby="edit-heading">
+        <form id="student-form">
+            <div class="dialog-heading">
+                <h2 id="edit-heading">
+                    Cập nhật thông tin sinh viên
+                </h2>
+                <span class="screen-code">
+                    STD002
+                </span>
+            </div>
+            <div class="edit-grid">
+                <div>
+                    <label class="form-label" for="edit-id">
+                        Mã sinh viên
+                    </label>
+                    <input type="text" class="form-control" id="edit-id" readonly>
+                </div>
+                <div>
+                    <label class="form-label" for="edit-name">
+                        Họ và tên
+                    </label>
+                    <input type="text" class="form-control" id="edit-name" maxlength="100" required>
+                </div>
+                <div>
+                    <label class="form-label" for="edit-class-id">
+                        Lớp
+                    </label>
+                    <input type="text" class="form-control" id="edit-class-id" maxlength="100" required>
+                </div>
+                <div>
+                    <label class="form-label" for="edit-classification">
+                        Loại lớp
+                    </label>
+                    <select class="form-select" id="edit-classification" required>
+                        <option value="Normal">
+                            Normal
+                        </option>
+                        <option value="CNC">
+                            CNC
+                        </option>
+                        <option value="Chuyên">
+                            Chuyên
+                        </option>
+                    </select>
+                </div>
+                <div>
+                    <label class="form-label" for="edit-point">
+                        Điểm trung bình
+                    </label>
+                    <input type="number" class="form-control" id="edit-point" min="0" max="10" step="0.1" required>
+                </div>
+                <div>
+                    <label class="form-label" for="edit-status">
+                        Học lực
+                    </label>
+                    <select class="form-select" id="edit-status" required>
+                        <option value="Yếu">
+                            Yếu
+                        </option>
+                        <option value="Trung bình">
+                            Trung bình
+                        </option>
+                        <option value="Khá">
+                            Khá
+                        </option>
+                        <option value="Giỏi">
+                            Giỏi
+                        </option>
+                        <option value="Xuất sắc">
+                            Xuất sắc
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="dialog-actions">
+                <button type="button" id="cancel-edit" class="btn btn-reset">
+                    Hủy
+                </button>
+                <button type="submit" class="btn btn-search">
+                    Lưu thay đổi
+                </button>
+            </div>
+        </form>
+    </dialog>
 </body>
 </html>
