@@ -34,6 +34,7 @@ tài liệu thiết kế chi tiết màn hình tính toán  `Average per set `
 | 3.1| Total (set) | tổng số lượng set | number |  | O | Giá trị mặc định: 0 |
 | 3.2| Total (yard) | tổng độ dài đơn vị yard| number |  | O | Giá trị mặc định: 0 |
 | 3.2| Average per set | tổng độ dài đơn vị yard| number |  | O | Giá trị mặc định: 0 |
+
 #### Chi tiết xử lý đối tượng
 1. `yard` hoặc `inch` hoặc `P32` hoặc `Ratio (set)` hoặc `Number Of Layer` thay đổi giá trị bắt đầu tính toán 
 - `Length of Marker` = `yard` +(`inch`+ `P32`/ 32)/36
