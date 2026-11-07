@@ -43,4 +43,3 @@ tài liệu thiết kế chi tiết màn hình tính toán  `Average per set `
 - `Total (set)` là  tổng của tất cả các giá trị  : `Ratio (set)` * `Number Of Layer`
 - `Total (yard)` là  tổng của tất cả các giá trị: `Length of Marker*Layer` 
 - `Average per set ` = `Total (yard)`/ `Total (set)`
-2. Tham khảo file excel TINHTOAN.xlsx sheet thứ nhất với địa chỉ file :E:\Working\SunnyCAD-Auto\Docs\Studies

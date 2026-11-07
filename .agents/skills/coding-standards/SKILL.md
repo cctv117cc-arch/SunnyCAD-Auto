@@ -32,6 +32,9 @@ Use this skill for HTML/CSS, JavaScript/jQuery implementation to keep style cons
 - Void elements such as `<input>`, `<img>`, `<br>`, `<meta>`, and `<link>` stay on a single line and have no closing tag.
 - Preserve whitespace-sensitive content, including `<pre>`, `<textarea>`, and inline text where added line breaks would change the rendered content or spacing. Do not reformat embedded JavaScript strings or templates as plain HTML.
 - Apply these rules to HTML being created or edited. Reformat an entire existing file only when requested.
+- Table allow use border
+- Table head allow background color: #93B9F6, text aligin: center, font-size: 14px
+- Table body: use color for even/odd row
 
 Preferred:
 ```html
