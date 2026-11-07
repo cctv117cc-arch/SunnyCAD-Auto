@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="STD001 - Tra cứu danh sách sinh viên theo họ tên, lớp và loại lớp.">
+    <title>Danh sách Sinh Viên | Sun Education</title>
+    <link rel="stylesheet" href="../wwwroot/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../wwwroot/css/std001.css">
+    <script src="../wwwroot/js/std001.js" defer></script>
+</head>
+<body>
+    <!-- Shared application header -->
+    <header class="app-header">
+        <div class="header-inner">
+            <div class="brand"><span class="brand-symbol" aria-hidden="true">S<span></span></span><span>SUN<span class="brand-subtitle">EDUCATION</span></span></div>
+            <div class="header-divider"></div>
+            <span class="workspace-name">Quản lý đào tạo</span>
+            <span class="screen-code">STD001</span>
+        </div>
+    </header>
+
+    <main class="page-shell">
+        <nav class="breadcrumb-trail" aria-label="Đường dẫn"><span>Quản lý đào tạo</span><span aria-hidden="true">/</span><span aria-current="page">Sinh viên</span></nav>
+        <div class="page-heading">
+            <div><p class="eyebrow">QUẢN LÝ SINH VIÊN</p><h1 id="title">Danh sách Sinh Viên</h1><p class="page-description">Tra cứu và theo dõi thông tin học tập của sinh viên.</p></div>
+            <span class="module-label"><span aria-hidden="true">●</span> Studies</span>
+        </div>
+
+        <!-- Search filters specified by STD001 -->
+        <section class="surface search-panel" aria-labelledby="search-heading">
+            <div class="section-heading"><span class="heading-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16M7 12h10M10 19h4"/></svg></span><h2 id="search-heading">Thông tin tìm kiếm</h2></div>
+            <form id="search-form" role="search">
+                <div class="filter-grid">
+                    <div><label class="form-label" for="name">Họ và tên</label><input class="form-control" type="text" id="name" name="name" placeholder="Nhập họ và tên sinh viên" maxlength="100"></div>
+                    <div><label class="form-label" for="class-id">Lớp</label><input class="form-control" type="text" id="class-id" name="classId" placeholder="Nhập tên lớp" maxlength="100"></div>
+                    <div>
+                        <label class="form-label" for="classification">
+                            Loại lớp
+                        </label>
+                        <select class="form-select" id="classification" name="classification">
+                            <option value="">
+                                Tất cả
+                            </option>
+                            <option value="Normal">
+                                Normal
+                            </option>
+                            <option value="CNC">
+                                CNC
+                            </option>
+                            <option value="Chuyên">
+                                Chuyên
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filter-footer"><p>Tìm kiếm gần đúng theo họ tên và tên lớp.</p><div class="filter-actions"><button type="reset" class="btn btn-reset">Đặt lại</button><button type="submit" class="btn btn-search"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>Tìm kiếm</button></div></div>
+            </form>
+        </section>
+
+        <!-- Student results and pagination -->
+        <section class="surface results-panel" aria-labelledby="results-heading">
+            <div class="results-toolbar"><div class="results-title"><h2 id="results-heading">Danh sách sinh viên</h2><span class="count-badge" id="result-count">0</span></div><div class="page-size-control"><label for="page-size">Số dòng / trang</label><select class="form-select" id="page-size"><option value="10">10</option><option value="20">20</option><option value="50">50</option></select></div></div>
+            <div class="table-responsive" tabindex="0" role="region" aria-label="Bảng danh sách sinh viên">
+                <table class="student-table"><caption class="visually-hidden">Thông tin sinh viên phù hợp với điều kiện tìm kiếm</caption><thead><tr><th scope="col">Mã sinh viên</th><th scope="col">Họ và tên</th><th scope="col">Lớp</th><th scope="col">Loại lớp</th><th scope="col" class="score-cell">Điểm trung bình</th><th scope="col">Học lực</th></tr></thead><tbody id="student-list"></tbody></table>
+                <div class="empty-state" id="empty-state" hidden><span aria-hidden="true">⌕</span><h3>Không tìm thấy sinh viên</h3><p>Hãy thay đổi điều kiện tìm kiếm hoặc đặt lại bộ lọc.</p><button type="button" id="clear-empty" class="btn btn-reset">Đặt lại bộ lọc</button></div>
+            </div>
+            <div class="results-footer"><p id="result-summary" role="status" aria-live="polite" aria-atomic="true"></p><nav class="pagination-controls" aria-label="Phân trang danh sách sinh viên"><button type="button" id="previous-page" class="page-button" aria-label="Trang trước">‹</button><div id="page-numbers" class="page-numbers"></div><button type="button" id="next-page" class="page-button" aria-label="Trang sau">›</button></nav></div>
+        </section>
+        <footer class="page-footer"><span>Sun Education <span aria-hidden="true">·</span> Hệ thống quản lý đào tạo</span><span class="demo-note">Dữ liệu mẫu • Chưa kết nối API</span></footer>
+        <noscript><p class="alert alert-warning mt-3">Vui lòng bật JavaScript để xem và tìm kiếm danh sách sinh viên.</p></noscript>
+    </main>
+</body>
+</html>
