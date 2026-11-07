@@ -5,6 +5,8 @@ Tài liệu thiết kế màn hình studies screen
 - v0.1 4/11/2026: Tạo tài liệu
 - v0.2 4/11/2026: thêm highlight cho danh sách sinh viên theo học lực
 - v0.3 4/11/2026: thêm lựa chọn cho loại lớp
+- v0.4 7/11/2026: thêm action vào danh sách sinh viên
+
 ## Danh sách các màn hình
 - STD001: Màn hình danh sách studies, cho tìm kiếm giới hạn số lượng tìm kiếm trên màn hình
 - STD002: Màn hình thêm/sửa/xóa study, màn hình dạng popup gồm các input fill data.
@@ -29,6 +31,8 @@ Tài liệu thiết kế màn hình studies screen
 | 2.4 | classification | Loại lớp| lable |  | O |  |
 | 2.5 | point | Điểm trung bình | lable |  | O |  |
 | 2.6 | status | Học lực | lable |  | O |  |
+| 2.7 | update-btn |  | button |  |  | open màn hình update thông tin sinh vien(STD002) <br> Icon: fa-solid fa-pen-nib |
+| 2.8 | delete-btn |  | button |  |  | Xóa thông tin sinh viên khỏi danh sách <br> Icon: fa-solid fa-trash|
 
 ### STD002 Màn hình thêm/sửa/xóa
 
