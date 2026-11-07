@@ -149,22 +149,24 @@ table {
     width: 100%;
     min-width: 1050px;
     border-collapse: collapse;
+    border: 1px solid #b8c9df;
 }
 
 th, td {
     padding: 12px 10px;
-    border-bottom: 1px solid #eaf0f6;
+    border: 1px solid #b8c9df;
     text-align: right;
 }
 
 thead th {
-    background: #f6f8fc;
-    border-top: 1px solid var(--line);
-    font-size: 12px;
+    background: #93B9F6;
+    color: #10213a;
+    text-align: center;
+    font-size: 14px;
     line-height: 1.6;
 }
 
-th:first-child {
+tbody th:first-child {
     padding-left: 24px;
     text-align: left;
 }
@@ -174,12 +176,26 @@ tbody th {
     color: var(--muted);
 }
 
-td:last-child, th:last-child {
+/* Apply alternating backgrounds to every cell, including calculated columns. */
+tbody tr:nth-child(odd) > th,
+tbody tr:nth-child(odd) > td {
+    background: #ffffff;
+}
+
+tbody tr:nth-child(even) > th,
+tbody tr:nth-child(even) > td {
+    background: #e1edff;
+}
+
+tbody input {
+    background: transparent;
+}
+
+td:last-child, tbody th:last-child {
     padding-right: 24px;
 }
 
 td:nth-child(n+7), .calculated {
-    background: #f5f8ff;
     font-variant-numeric: tabular-nums;
 }
 
@@ -187,6 +203,10 @@ td:nth-child(n+7), .calculated {
     display: block;
     font-weight: 400;
     color: var(--muted);
+}
+
+thead .unit {
+    color: inherit;
 }
 
 .summary-grid {
